@@ -1161,7 +1161,14 @@ function doPikafishSearch() {
   if (!pikafishReady || !pikafishWorker) {
     // 引擎还没准备好，先等一下
     if (pikafishInitializing) {
-      // 正在初始化，等待 ready 后自动触发
+      // 正在初始化，设置30秒超时后回退到内置AI
+      if (searchTimeoutId) clearTimeout(searchTimeoutId);
+      searchTimeoutId = setTimeout(function() {
+        if (game.aiThinking && !pikafishReady) {
+          console.warn('引擎初始化中超时（30秒），本步用内置 AI');
+          fallbackToBuiltinAI();
+        }
+      }, 30000);
       return;
     }
     // 尝试初始化

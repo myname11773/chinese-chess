@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>中国象棋 - 人机对战</title>
-  <link rel="stylesheet" href="css/style.css?v=8">
+  <link rel="stylesheet" href="css/style.css?v=9">
 </head>
 <body>
   <!-- 背景音乐（Web Audio API 合成，无需外部文件） -->
@@ -79,6 +79,11 @@
     </div>
   </div>
 
+  <!-- 免责声明滚动字幕 -->
+  <div class="disclaimer-bar">
+    <div class="disclaimer-text">免责声明：本游戏仅供学习交流使用，棋子图片、棋盘背景、音效等素材均来自网络，版权归原作者所有。如涉侵权请联系删除。AI引擎采用开源项目 Pikafish。</div>
+  </div>
+
   <!-- 选边弹窗 -->
   <div class="modal-overlay show" id="sideSelectModal">
     <div class="modal-content">
@@ -100,7 +105,7 @@
     </div>
   </div>
 
-  <script src="js/game.js?v=9"></script>
+  <script src="js/game.js?v=10"></script>
   <script>
     // 注册 Service Worker，缓存引擎文件加速二次访问
     if ('serviceWorker' in navigator) {
